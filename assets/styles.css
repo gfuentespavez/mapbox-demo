@@ -1,0 +1,27 @@
+.text-box {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    max-width: 80vw;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid red;  /* Add this border temporarily for visibility */
+}
+
+.text-box .custom-title {
+    font-size: 24px;
+    color: #FF4500;  /* Orange color for the title */
+    font-weight: bold;
+}
+
+.text-box .custom-description {
+    font-size: 16px;
+    color: #ccc;  /* Lighter color for description */
+}
+
+#features {
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapbox Chapters</title>
+    <link href="https://unpkg.com/mapbox-gl/dist/mapbox-gl.css" rel="stylesheet">
+    <style>
+        /* Reset y full width para el body */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Contenedor del mapa */
+        #map {
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Estilo para la caja de texto */
+        .text-box {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            max-width: 80vw;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 2px solid red;  /* Border temporal para visibilidad */
+        }
+
+        /* Estilo para el título personalizado */
+        .text-box .custom-title {
+            font-size: 24px;
+            color: #FF4500;
+            font-weight: bold;
+        }
+
+        /* Estilo para la descripción */
+        .text-box .custom-description {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        /* Contenedor de los controles de Mapbox */
+        .mapboxgl-ctrl-top-right {
+            display: none;
+        }
+
+        /* Estilo del contenedor de capítulos */
+        #features {
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div> <!-- Contenedor del mapa -->
+<div id="features"></div> <!-- Contenedor de capítulos -->
+
+<script src="https://unpkg.com/mapbox-gl/dist/mapbox-gl.js"></script>
+<script>
+    // Configuración del mapa de Mapbox
+    mapboxgl.accessToken = config.accessToken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: config.style,
+        center: config.chapters[0].location.center,
+        zoom: config.chapters[0].location.zoom,
+        pitch: config.chapters[0].location.pitch,
+        bearing: config.chapters[0].location.bearing
+    });
+
+    // Función para agregar los capítulos
+    var features = document.getElementById('features');
+    config.chapters.forEach((record, idx) => {
+        var chapter = document.createElement('div');  // Crear contenedor para el capítulo
+
+        // Agregar la clase de la caja de texto
+        chapter.classList.add('text-box');
+
+        // Agregar título si existe
+        if (record.title) {
+            var title = document.createElement('h3');
+            title.innerHTML = record.title;
+            chapter.appendChild(title);
+        }
+
+        // Agregar imagen si existe
+        if (record.image) {
+            var image = new Image();
+            image.src = record.image;
+            chapter.appendChild(image);
+        }
+
+        // Agregar descripción si existe
+        if (record.description) {
+            var description = document.createElement('p');
+            description.innerHTML = record.description;
+            chapter.appendChild(description);
+        }
+
+        // Configurar el ID y agregar clases para los pasos
+        chapter.setAttribute('id', record.id);
+        chapter.classList.add('step');
+        if (idx === 0) {
+            chapter.classList.add('active');
+        }
+
+        chapter.classList.add(config.theme);  // Agregar la clase del tema
+
+        // Si está oculto, agregar la clase hidden
+        if (record.hidden) {
+            chapter.classList.add('hidden');
+        }
+
+        features.appendChild(chapter);  // Agregar al contenedor de características
+    });
+</script>
+
+</body>
+</html>
