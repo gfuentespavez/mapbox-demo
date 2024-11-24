@@ -1,9 +1,23 @@
+.custom-logo {
+    position: fixed;  /* Esto fija la imagen en la pantalla */
+    top: 20px;        /* Distancia desde la parte superior */
+    right: 20px;       /* Distancia desde la parte izquierda */
+    max-width: 150px; /* Limita el tamaño máximo de la imagen */
+    z-index: 9999;    /* Asegúrate de que la imagen esté por encima de otros elementos */
+}
+
+.custom-subtitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+
 .custom-title {
     font-size: 2rem;
     font-weight: 700;
     text-align: left;
     margin-bottom: 2rem;
-    margin-right: 10rem;
     line-height: 1.2;
 }
 
@@ -12,5 +26,27 @@
     line-height: 1.5rem;
     text-align: left;
     margin-right: 1rem;
+}
 
+/* Smaller on mobile */
+@media (max-width: 768px) {
+    .custom-title {
+        font-size: 14px;
+    }
+    .custom-description {
+        font-size: 14px;
+        padding: 0 10px; /* padding para evitar que el texto toque los bordes */
+    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .custom-title {
+        font-size: 18px;
+    }
+
+    .custom-description {
+        font-size: 12px;
+        padding: 0 15px; /* Add more padding for small screens */
+    }
 }
