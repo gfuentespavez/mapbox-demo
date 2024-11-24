@@ -1,127 +1,396 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapbox Chapters</title>
-    <link href="https://unpkg.com/mapbox-gl/dist/mapbox-gl.css" rel="stylesheet">
+    <meta charset='utf-8' />
+    <title>Mapbox Storytelling</title>
+    <link href="styles.css" rel="stylesheet">
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link rel="icon" type="image/x-icon"
+          href="https://raw.githubusercontent.com/mapbox/assembly/publisher-staging/src/svgs/mapbox.svg">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js'></script>
+
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="./assets/styles.css" ref="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mapbox-gl-globe-minimap@1.2.0/dist/bundle.js"></script>
+
+    <script src="https://unpkg.com/scrollama"></script>
     <style>
-        /* Reset y full width para el body */
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', sans-serif;
         }
 
-        /* Contenedor del mapa */
+        a,
+        a:hover,
+        a:visited {
+            color: #af00bc;
+        }
+
         #map {
-            width: 100%;
+            top: 0;
             height: 100vh;
+            width: 100vw;
+            position: fixed;
         }
 
-        /* Estilo para la caja de texto */
-        .text-box {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 10px;
-            color: white;
-            max-width: 80vw;
-            margin: 20px auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border: 2px solid red;  /* Border temporal para visibilidad */
-        }
-
-        /* Estilo para el título personalizado */
-        .text-box .custom-title {
-            font-size: 24px;
-            color: #FF4500;
-            font-weight: bold;
-        }
-
-        /* Estilo para la descripción */
-        .text-box .custom-description {
-            font-size: 16px;
-            color: #ccc;
-        }
-
-        /* Contenedor de los controles de Mapbox */
-        .mapboxgl-ctrl-top-right {
-            display: none;
-        }
-
-        /* Estilo del contenedor de capítulos */
-        #features {
+        #header {
+            margin: auto;
+            margin-bottom: 50px;
+            background-color: #111;
             width: 100%;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
+            height: 10rem;
+            position: relative;
+            z-index: 5;
+            opacity: 0.8;
+        }
+
+        #header h1,
+        #header h2,
+        #header p {
+            margin: 0;
+            padding: 2vh 2vw;
+            text-align: left;
+        }
+
+        #footer {
+            width: 100%;
+            min-height: 5vh;
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+            text-align: center;
+            line-height: 25px;
+            font-size: 13px;
+            position: relative;
+            z-index: 5;
+        }
+
+        #features {
+            padding-top: 10vh;
+            padding-bottom: 10vh;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+
+        .centered {
+            width: 50vw;
+            margin: 0 auto;
+        }
+
+        .lefty {
+            width: 33vw;
+            margin-left: 5vw;
+        }
+
+        .righty {
+            width: 33vw;
+            margin-left: 62vw;
+        }
+
+        .fully {
+            width: 100%;
+            height: 100%;
+            margin: auto;
+        }
+
+        .light {
+            color: #333;
+            background-color: #ffcc06;
+            box-shadow: 3px 3px 555px #888888;
+            border-radius: 10px;
+
+        }
+
+        .dark {
+            color: #fff;
+            background-color: #111;
+            box-shadow: 5px 5px 40px #3333;
+            border-radius: 10px;
+        }
+
+        .step {
+            padding-bottom: 50vh;
+            /* margin-bottom: 10vh; */
+            opacity: 0.25;
+        }
+
+        .step.active {
+            opacity: 0.9;
+        }
+
+        .step div {
+            padding: 25px 50px;
+            line-height: 25px;
+            font-size: 13px;
+        }
+
+        .step img {
+            width: 100%;
+        }
+
+        @media (max-width: 750px) {
+
+            .centered,
+            .lefty,
+            .righty,
+            .fully {
+                width: 90vw;
+                margin: 0 auto;
+            }
+
+            .title-logo {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+
+        /* Fix issue on mobile browser where scroll breaks  */
+        .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan,
+        .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan .mapboxgl-canvas {
+            touch-action: unset;
         }
     </style>
 </head>
+
 <body>
 
-<div id="map"></div> <!-- Contenedor del mapa -->
-<div id="features"></div> <!-- Contenedor de capítulos -->
+<div id="map"></div>
+<div id="story"></div>
 
-<script src="https://unpkg.com/mapbox-gl/dist/mapbox-gl.js"></script>
+<script src="./config.js"></script>
 <script>
-    // Configuración del mapa de Mapbox
-    mapboxgl.accessToken = config.accessToken;
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: config.style,
-        center: config.chapters[0].location.center,
-        zoom: config.chapters[0].location.zoom,
-        pitch: config.chapters[0].location.pitch,
-        bearing: config.chapters[0].location.bearing
-    });
+    var initLoad = true;
+    var layerTypes = {
+        'fill': ['fill-opacity'],
+        'line': ['line-opacity'],
+        'circle': ['circle-opacity', 'circle-stroke-opacity'],
+        'symbol': ['icon-opacity', 'text-opacity'],
+        'raster': ['raster-opacity'],
+        'fill-extrusion': ['fill-extrusion-opacity'],
+        'heatmap': ['heatmap-opacity']
+    }
 
-    // Función para agregar los capítulos
-    var features = document.getElementById('features');
+    var alignments = {
+        'left': 'lefty',
+        'center': 'centered',
+        'right': 'righty',
+        'full': 'fully'
+    }
+
+    function getLayerPaintType(layer) {
+        var layerType = map.getLayer(layer).type;
+        return layerTypes[layerType];
+    }
+
+    function setLayerOpacity(layer) {
+        var paintProps = getLayerPaintType(layer.layer);
+        paintProps.forEach(function (prop) {
+            var options = {};
+            if (layer.duration) {
+                var transitionProp = prop + "-transition";
+                options = { "duration": layer.duration };
+                map.setPaintProperty(layer.layer, transitionProp, options);
+            }
+            map.setPaintProperty(layer.layer, prop, layer.opacity, options);
+        });
+    }
+
+    var story = document.getElementById('story');
+    var features = document.createElement('div');
+    features.setAttribute('id', 'features');
+
+    var header = document.createElement('div');
+
+    if (config.title) {
+        var titleText = document.createElement('h1');
+        titleText.innerHTML = config.title;
+        header.appendChild(titleText);
+    }
+
+    if (config.subtitle) {
+        var subtitleText = document.createElement('h2');
+        subtitleText.innerText = config.subtitle;
+        header.appendChild(subtitleText);
+    }
+
+    if (config.byline) {
+        var bylineText = document.createElement('p');
+        bylineText.innerText = config.byline;
+        header.appendChild(bylineText);
+    }
+
+    if (header.innerText.length > 0) {
+        header.classList.add(config.theme);
+        header.setAttribute('id', 'header');
+        story.appendChild(header);
+    }
+
     config.chapters.forEach((record, idx) => {
-        var chapter = document.createElement('div');  // Crear contenedor para el capítulo
+        var container = document.createElement('div');
+        var chapter = document.createElement('div');
 
-        // Agregar la clase de la caja de texto
-        chapter.classList.add('text-box');
-
-        // Agregar título si existe
         if (record.title) {
             var title = document.createElement('h3');
             title.innerHTML = record.title;
             chapter.appendChild(title);
         }
 
-        // Agregar imagen si existe
         if (record.image) {
             var image = new Image();
             image.src = record.image;
             chapter.appendChild(image);
         }
 
-        // Agregar descripción si existe
         if (record.description) {
-            var description = document.createElement('p');
-            description.innerHTML = record.description;
-            chapter.appendChild(description);
+            var story = document.createElement('p');
+            story.innerHTML = record.description;
+            chapter.appendChild(story);
         }
 
-        // Configurar el ID y agregar clases para los pasos
-        chapter.setAttribute('id', record.id);
-        chapter.classList.add('step');
+        container.setAttribute('id', record.id);
+        container.classList.add('step');
         if (idx === 0) {
-            chapter.classList.add('active');
+            container.classList.add('active');
         }
 
-        chapter.classList.add(config.theme);  // Agregar la clase del tema
-
-        // Si está oculto, agregar la clase hidden
+        chapter.classList.add(config.theme);
+        container.appendChild(chapter);
+        container.classList.add(alignments[record.alignment] || 'centered');
         if (record.hidden) {
-            chapter.classList.add('hidden');
+            container.classList.add('hidden');
         }
-
-        features.appendChild(chapter);  // Agregar al contenedor de características
+        features.appendChild(container);
     });
+
+    story.appendChild(features);
+
+    var footer = document.createElement('div');
+
+    if (config.footer) {
+        var footerText = document.createElement('p');
+        footerText.innerHTML = config.footer;
+        footer.appendChild(footerText);
+    }
+
+    if (footer.innerText.length > 0) {
+        footer.classList.add(config.theme);
+        footer.setAttribute('id', 'footer');
+        story.appendChild(footer);
+    }
+
+    mapboxgl.accessToken = config.accessToken;
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: config.style,
+        center: config.chapters[0].location.center,
+        zoom: config.chapters[0].location.zoom,
+        bearing: config.chapters[0].location.bearing,
+        pitch: config.chapters[0].location.pitch,
+        interactive: false,
+        projection: config.projection
+    });
+
+    // Create a inset map if enabled in config.js
+    if (config.inset) {
+        map.addControl(
+            new GlobeMinimap({ ...config.insetOptions }),
+            config.insetPosition
+        );
+    }
+
+    if (config.showMarkers) {
+        var marker = new mapboxgl.Marker({ color: config.markerColor });
+        marker.setLngLat(config.chapters[0].location.center).addTo(map);
+    }
+
+    // instantiate the scrollama
+    var scroller = scrollama();
+
+
+    map.on("load", function () {
+        if (config.use3dTerrain) {
+            map.addSource('mapbox-dem', {
+                'type': 'raster-dem',
+                'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
+                'tileSize': 512,
+                'maxzoom': 14
+            });
+            // add the DEM source as a terrain layer with exaggerated height
+            map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
+
+            // add a sky layer that will show when the map is highly pitched
+            map.addLayer({
+                'id': 'sky',
+                'type': 'sky',
+                'paint': {
+                    'sky-type': 'atmosphere',
+                    'sky-atmosphere-sun': [0.0, 0.0],
+                    'sky-atmosphere-sun-intensity': 15
+                }
+            });
+        };
+
+        // setup the instance, pass callback functions
+        scroller
+            .setup({
+                step: '.step',
+                offset: 0.5,
+                progress: true
+            })
+            .onStepEnter(async response => {
+                var current_chapter = config.chapters.findIndex(chap => chap.id === response.element.id);
+                var chapter = config.chapters[current_chapter];
+
+                response.element.classList.add('active');
+                map[chapter.mapAnimation || 'flyTo'](chapter.location);
+
+                if (config.showMarkers) {
+                    marker.setLngLat(chapter.location.center);
+                }
+                if (chapter.onChapterEnter.length > 0) {
+                    chapter.onChapterEnter.forEach(setLayerOpacity);
+                }
+                if (chapter.callback) {
+                    window[chapter.callback]();
+                }
+                if (chapter.rotateAnimation) {
+                    map.once('moveend', () => {
+                        const rotateNumber = map.getBearing();
+                        map.rotateTo(rotateNumber + 180, {
+                            duration: 30000, easing: function (t) {
+                                return t;
+                            }
+                        });
+                    });
+                }
+                if (config.auto) {
+                    var next_chapter = (current_chapter + 1) % config.chapters.length;
+                    map.once('moveend', () => {
+                        document.querySelectorAll('[data-scrollama-index="' + next_chapter.toString() + '"]')[0].scrollIntoView();
+                    });
+                }
+            })
+            .onStepExit(response => {
+                var chapter = config.chapters.find(chap => chap.id === response.element.id);
+                response.element.classList.remove('active');
+                if (chapter.onChapterExit.length > 0) {
+                    chapter.onChapterExit.forEach(setLayerOpacity);
+                }
+            });
+
+
+        if (config.auto) {
+            document.querySelectorAll('[data-scrollama-index="0"]')[0].scrollIntoView();
+        }
+    });
+
 </script>
 
 </body>
+
 </html>
