@@ -14,10 +14,11 @@ var config = {
     },
     insetPosition: 'bottom-right',
     use3dTerrain: false, //set true for enabling 3D maps.
-    title: '<img src="/assets/images/logo.png" alt="" style="max-width: 300px; margin-right: 10px;">',
-    subtitle: '@citylabbiobio',
+
+    title: '',
+    subtitle: '',
     byline: '',
-    footer: 'source',
+    image: '<img src="/assets/images/logo.png" alt="" class="custom-logo">',
     auto: false,
     chapters: [
         {
@@ -37,23 +38,12 @@ var config = {
             mapAnimation: 'flyTo',
             rotateAnimation: true,
             callback: '',
-            onChapterEnter: [
-                {
-                    layer: 'intro',
-                    opacity: 1,
-                    duration: 5000,
-                }
-            ],
-            onChapterExit: [
-                {
-                    layer: 'intro',
-                    opacity: 0,
-                }
-            ]
+            onChapterEnter: [],
+            onChapterExit: []
         },
         {
             id: 'alborada-spp',
-            alignment: 'right',
+            alignment: 'left',
             hidden: false,
             title: '<h3 class="custom-title">Estación Alborada, <br>San Pedro de la Paz.</h3>',
             description: 'The second chapter flies to Washington, D.C., updates the camera pitch, and slowly rotates. <br>  <br> Washington, D.C., the capital of the United States, is a vibrant city known for its iconic landmarks, including the White House, the U.S. Capitol, and the Washington Monument. It serves as the political heart of the nation and a center for history, culture, and international diplomacy.',
@@ -92,17 +82,16 @@ var config = {
             onChapterExit: []
         },
         {
-            id: 'fourth-chapter',
+            id: 'bonilla',
             alignment: 'left',
             hidden: false,
-            title: 'Buenos Aires',
-            image: './assets/buenos-aires.jpg',
-            description: 'Buenos Aires, the capital of Argentina, is a dynamic city known for its European-inspired architecture, vibrant tango culture, and rich culinary scene. Often called the "Paris of South America," it blends historic charm with modern energy.  You can add as many chapters as you need, just copy the JSON data and make changes.',
+            title: '<h3 class="custom-title">Rotonda Bonilla, Concepción</h3>',
+            description: '<p class="custom-description">La entrada al terminal siempre tomada por los Uber.</p>',
             location: {
                 center: [-73.02745, -36.81144],
-                zoom: 14,
-                pitch: 30,
-                bearing: -20
+                zoom: 16,
+                pitch: 20,
+                bearing: -0.1,
             },
             mapAnimation: 'flyTo',
             rotateAnimation: true,
