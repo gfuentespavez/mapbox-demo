@@ -12,13 +12,13 @@ var config = {
     insetOptions: {
         markerColor: 'orange'
     },
-    insetPosition: 'bottom-right',
+    insetPosition: 'bottom-right' ,
     use3dTerrain: false, //set true for enabling 3D maps.
-
     title: '',
     subtitle: '',
     byline: '',
     image: '<img src="/assets/images/logo.png" alt="" class="custom-logo">',
+
     auto: false,
     chapters: [
         {
