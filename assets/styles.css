@@ -13,6 +13,27 @@
 }
 
 
+.custom-main-title {
+    font-size: 5rem;
+    font-weight: 700;
+    font-family: "Roboto Slab", serif;
+    text-align: left;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
+.highlight {
+    color: #ffcc06 !important;
+    font-size: 5rem;
+    font-weight: 700;
+    font-family: "Roboto Slab", serif;
+    text-align: left;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
 .custom-title {
     font-size: 2rem;
     font-weight: 700;
