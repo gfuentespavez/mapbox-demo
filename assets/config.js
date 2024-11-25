@@ -25,10 +25,7 @@ var config = {
             id: 'intro',
             alignment: 'left',
             hidden: false,
-            title: '<h3 class="custom-title">¿Dónde ocurren más accidentes en el Gran Concepción?</h3>',
-            description: '<p class="custom-description">Analizamos datos de Waze para determinar los sectores con mayor prevalencia de accidentes de tránsito en el área metropolitana. Los resultados nos permiten entender las causas subyacentes a los accidentes.  <br><br> El Área Metropolitana del Gran Concepción, segundo conglomerado urbano del país, experimentó un constante incremento en la flota vehicular durante los últimos años: en 2022, se vendieron 27.926 vehículos nuevos, y 21.027, en 2023 (Anac, 2022-23). También, en 2022, la región del Biobío ocupó el tercer lugar con la mayor cantidad de permisos de circulación para vehículos en Chile con 511.500 permisos. Esto corresponde a 0,3 permisos por persona, situándose por sobre los 0,27 de la Región Metropolitana (INE, 2023).\n' +
-                '<br><br>Este aumento de vehículos motorizados en la ciudad genera diferentes impactos de carácter negativo como el incremento en el flujo y la congestión vehicular, la contribución a la contaminación y, por último. potencia el riesgo de experimentar una colisión o accidentes de tránsito.\n' +
-                '<br><br>En 2023, a nivel país se registraron 78.238 siniestros de tránsito en los cuales resultaron 1.635 personas fallecidas (Carabineros, 2023). Sin embargo, esto representa una disminución de un 9,1% con respecto al año anterior. Y, en el caso de la región del Biobío, fallecieron 156 personas por la misma causa vial y 5.665 quedaron con lesiones de diversa consideración, presentando uno de los menores niveles del índice de severidad del país con 1,88 víctimas fatales por cada 100 siniestros de tránsito (Conaset, 2023).\n</p>',
+            title: '<h3 class="custom-main-title">¿Dónde ocurren más accidentes en el Gran Concepción?</h3>',
             location: {
                 center: [-73.10207, -36.81371],
                 zoom: 9.34,
@@ -36,10 +33,29 @@ var config = {
                 bearing: 5,
             },
             mapAnimation: 'flyTo',
-            rotateAnimation: true,
+            rotateAnimation: false,
             callback: '',
             onChapterEnter: [],
             onChapterExit: []
+        },
+        {
+            id: 'intro-bajada',
+            alignment: 'left',
+            hidden: false,
+            title:'',
+            description:'<p class="custom-description">Analizamos datos de Waze para determinar los sectores con mayor prevalencia de accidentes de tránsito en el área metropolitana. Los resultados nos permiten entender las causas subyacentes a los accidentes.  <br><br> El Área Metropolitana del Gran Concepción, segundo conglomerado urbano del país, experimentó un constante incremento en la flota vehicular durante los últimos años: en 2022, se vendieron 27.926 vehículos nuevos, y 21.027, en 2023 (Anac, 2022-23). También, en 2022, la región del Biobío ocupó el tercer lugar con la mayor cantidad de permisos de circulación para vehículos en Chile con 511.500 permisos. Esto corresponde a 0,3 permisos por persona, situándose por sobre los 0,27 de la Región Metropolitana (INE, 2023).\n' +
+                '<br><br>Este aumento de vehículos motorizados en la ciudad genera diferentes impactos de carácter negativo como el incremento en el flujo y la congestión vehicular, la contribución a la contaminación y, por último. potencia el riesgo de experimentar una colisión o accidentes de tránsito.\n' +
+                '<br><br>En 2023, a nivel país se registraron 78.238 siniestros de tránsito en los cuales resultaron 1.635 personas fallecidas (Carabineros, 2023). Sin embargo, esto representa una disminución de un 9,1% con respecto al año anterior. Y, en el caso de la región del Biobío, fallecieron 156 personas por la misma causa vial y 5.665 quedaron con lesiones de diversa consideración, presentando uno de los menores niveles del índice de severidad del país con 1,88 víctimas fatales por cada 100 siniestros de tránsito (Conaset, 2023).\n</p>',
+            location: {
+                center: [-73.10207, -36.81600],
+                zoom: 11.344,
+                pitch: 40,
+                bearing: 5,
+            },
+            mapAnimation: 'easeTo',
+            rotateAnimation: false,
+            onChapterEnter: [],
+            onChapterExit: [],
         },
         {
             id: 'alborada-spp',
@@ -82,6 +98,42 @@ var config = {
             onChapterExit: []
         },
         {
+            id:'nudo-nobis',
+            alignment: 'left',
+            hidden: false,
+            title:'<h3 class="custom-title">Nudo Nobis, Concepción</h3>',
+            description:'<p class="custom-description">Acá las Coronel Lota son del terror</p>',
+            location: {
+                center: [-73.07984, -36.80856],
+                zoom: 17,
+                pitch: 20,
+                bearing: -0.1,
+            },
+            mapAnimation: 'easeTo',
+            rotateAnimation: true,
+            callback: '',
+            onChapterEnter: [],
+            onChapterExit: []
+        },
+        {
+            id:'trebol',
+            alignment: 'left',
+            hidden: false,
+            title:'<h3 class="custom-title">Enlace Trébol</h3>',
+            description:'<p class="custom-description">La planta de revisión técnica genera el caos para todos lados</p>',
+            location: {
+                center: [-73.06528, -36.79791],
+                zoom: 16,
+                pitch: 20,
+                bearing: -0.1,
+            },
+            mapAnimation: 'easeTo',
+            rotateAnimation: true,
+            callback: '',
+            onChapterEnter: [],
+            onChapterExit: []
+        },
+        {
             id: 'bonilla',
             alignment: 'left',
             hidden: false,
@@ -98,6 +150,6 @@ var config = {
             callback: '',
             onChapterEnter: [],
             onChapterExit: []
-        }
+        },
     ]
 };
