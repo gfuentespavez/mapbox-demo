@@ -10,6 +10,12 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js'></script>
 
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css' rel='stylesheet' />
+
+   <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bokor&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+
     <link rel="./assets/styles.css" ref="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/mapbox-gl-globe-minimap@1.2.0/dist/bundle.js"></script>
     <script src="https://unpkg.com/scrollama"></script>
@@ -103,9 +109,12 @@
 
         .dark {
             color: #fff;
-            background-color: #111;
-            box-shadow: 5px 5px 40px #3333;
+            background-color: rgba(0,0,0,0.3);
             border-radius: 10px;
+            margin-bottom: 50rem;
+        }
+
+
         }
         .custom-subtitle {
             font-size: 13px;
@@ -133,34 +142,51 @@
             width: 100%;
         }
 
-        @media (max-width: 750px) {
-
-            .centered,
-            .lefty,
-            .righty,
-            .fully {
-                width: 90vw;
-                margin: 0 auto;
-            }
-
-            .title-logo {
-                max-width: 100%;
-                height: auto;
-                display: block;
-                margin: 0 auto;
-            }
+        .dropdown button {
+            background-color: #333;
+            color: #ffcc06;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            box-shadow: 3px 3px 15px rgba(0,0,0,0.2);
         }
 
-        /* Fix issue on mobile browser where scroll breaks  */
-        .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan,
-        .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan .mapboxgl-canvas {
-            touch-action: unset;
+        .dropdown button:hover {
+            background-color: #555;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 3px 3px 15px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown-content button {
+            background-color: #333;
+            color: #ffcc06;
+            padding: 10px 15px;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .dropdown-content button:hover {
+            background-color: #555;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
     </style>
 </head>
 
 <body>
-
 <div id="map"></div>
 <div id="story"></div>
 
