@@ -23,13 +23,13 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Helvetica Neue', sans-serif;
+            font-family: 'Roboto Slab', serif;
         }
 
         a,
         a:hover,
         a:visited {
-            color: #af00bc;
+            color: #ffcc06;
         }
 
         #map {
@@ -41,12 +41,11 @@
 
         #header {
             margin: auto;
-            background-color: #000;
+            background-color: rgba(255, 255, 255, 0.0);
             width: 100%;
             height: 10rem;
             position: relative;
             z-index: 5;
-            opacity: 0.8; /* Opacidad del header */
         }
 
         #header h1,
@@ -59,14 +58,14 @@
 
         #footer {
             width: 100%;
-            min-height: 5vh;
+            min-height: 1vh;
             padding-top: 2vh;
-            padding-bottom: 2vh;
+            padding-bottom: 1vh;
             text-align: center;
             line-height: 25px;
             font-size: 13px;
             position: relative;
-            z-index: 5;
+            z-index: 1;
         }
 
         #features {
@@ -84,7 +83,7 @@
         }
 
         .lefty {
-            width: 33vw;
+            width: 50vw;
             margin-left: 5vw;
         }
 
@@ -109,13 +108,12 @@
 
         .dark {
             color: #fff;
-            background-color: rgba(0,0,0,0.3);
+            background-color: rgba(0,0,0,0.5);
             border-radius: 10px;
-            margin-bottom: 50rem;
+            margin-bottom: 45rem;
+            margin-top: 3rem;
         }
 
-
-        }
         .custom-subtitle {
             font-size: 13px;
             color: #ffcc06;
@@ -142,47 +140,6 @@
             width: 100%;
         }
 
-        .dropdown button {
-            background-color: #333;
-            color: #ffcc06;
-            padding: 10px 15px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-            box-shadow: 3px 3px 15px rgba(0,0,0,0.2);
-        }
-
-        .dropdown button:hover {
-            background-color: #555;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #333;
-            min-width: 160px;
-            box-shadow: 3px 3px 15px rgba(0,0,0,0.2);
-            z-index: 1;
-            border-radius: 5px;
-        }
-
-        .dropdown-content button {
-            background-color: #333;
-            color: #ffcc06;
-            padding: 10px 15px;
-            border: none;
-            width: 100%;
-            text-align: left;
-        }
-
-        .dropdown-content button:hover {
-            background-color: #555;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
     </style>
 </head>
 
@@ -276,6 +233,12 @@
             chapter.appendChild(title);
         }
 
+        if (record.subs) {
+            var subs = document.createElement('div');
+            subs.innerHTML = record.subs;
+            chapter.appendChild(subs);
+        }
+
         if (record.image) {
             var image = new Image();
             image.src = record.image;
@@ -331,14 +294,6 @@
         interactive: false,
         projection: config.projection
     });
-
-    // Create a inset map if enabled in config.js
-    if (config.inset) {
-        map.addControl(
-            new GlobeMinimap({ ...config.insetOptions }),
-            config.insetPosition
-        );
-    }
 
     if (config.showMarkers) {
         var marker = new mapboxgl.Marker({ color: config.markerColor });
