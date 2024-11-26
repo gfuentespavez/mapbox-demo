@@ -6,6 +6,26 @@
     z-index: 9999;    /* Asegúrate de que la imagen esté por encima de otros elementos */
 }
 
+.custom-byline {
+    position: absolute;
+    font-size: 2rem;
+    font-family: "Roboto Slab", serif;
+    text-align: left;
+    color: #ffcc06;
+    left:80px;
+    max-width: 150px;
+    position: relative;
+}
+
+.custom-subs {
+    font-size: 1.35rem;
+    font-family: "Roboto Slab", serif;
+    color: #ffcc06;
+    text-align: left;
+    margin-left: -50px;
+    margin-top: -30px;
+}
+
 .custom-subtitle {
     font-size: 1.5rem;
     font-weight: 700;
@@ -14,13 +34,13 @@
 
 
 .custom-main-title {
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 700;
     font-family: "Roboto Slab", serif;
     text-align: left;
-    margin-bottom: 2rem;
-    line-height: 1.2;
+    line-height: 0.92;
     letter-spacing: 1px;
+    margin-top: -2rem;
 }
 
 .highlight {
@@ -51,6 +71,10 @@
 
 /* Smaller on mobile */
 @media (max-width: 768px) {
+    .custom-main-title {
+        font-size: 2rem;
+    }
+
     .custom-title {
         font-size: 14px;
     }
@@ -62,13 +86,32 @@
 
 /* Responsive */
 @media (max-width: 480px) {
+    .custom-main-title {
+        font-size: 2rem;
+    }
+
     .custom-title {
         font-size: 18px;
     }
 
     .custom-description {
-        font-size: 12px;
+        font-size: 2rem;
         padding: 0 15px; /* Add more padding for small screens */
     }
 }
 
+/* Responsive 1080 */
+@media (max-width: 1080px) {
+    .custom-main-title {
+        font-size: 2.5rem;
+    }
+
+    .custom-title {
+        font-size: 18px;
+    }
+
+    .custom-description {
+        font-size: 1rem;
+        padding: 0 15px; /* Add more padding for small screens */
+    }
+}
