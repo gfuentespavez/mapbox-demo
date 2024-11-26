@@ -26,6 +26,7 @@ var config = {
             alignment: 'left',
             hidden: false,
             title: '<h3 class="custom-main-title">¿Dónde ocurren más accidentes en el Gran Concepción?</h3>',
+            subs: '<h3 class="custom-subs">Análisis de datos en partnership con Waze.</h3>',
             location: {
                 center: [-73.10207, -36.81371],
                 zoom: 9.34,
@@ -63,6 +64,7 @@ var config = {
             hidden: false,
             title: '<h3 class="custom-title">Estación Alborada, <br>San Pedro de la Paz.</h3>',
             description: 'The second chapter flies to Washington, D.C., updates the camera pitch, and slowly rotates. <br>  <br> Washington, D.C., the capital of the United States, is a vibrant city known for its iconic landmarks, including the White House, the U.S. Capitol, and the Washington Monument. It serves as the political heart of the nation and a center for history, culture, and international diplomacy.',
+            image: '',
             location: {
                 center: [-73.13022, -36.84421],
                 zoom: 15.5,
@@ -145,7 +147,7 @@ var config = {
                 pitch: 20,
                 bearing: -0.1,
             },
-            mapAnimation: 'flyTo',
+            mapAnimation: 'easeTo',
             rotateAnimation: true,
             callback: '',
             onChapterEnter: [],
