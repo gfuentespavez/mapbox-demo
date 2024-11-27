@@ -1,6 +1,5 @@
 var config = {
     style: 'mapbox://styles/germanfuentes/cm3t6fzv3007601ql8t1a85l9',
-    // leave commented to use Mapbox Standard Style
     accessToken: 'pk.eyJ1IjoiZ2VybWFuZnVlbnRlcyIsImEiOiJjbTN0NmU3bXYwM3dnMmxwd201MXNtc3R2In0.8md46jHNBme3_OHPPAW7Lw',
     showMarkers: false,
     theme: 'dark',
@@ -12,7 +11,6 @@ var config = {
     insetOptions: {
         markerColor: 'orange'
     },
-    insetPosition: 'bottom-right' ,
     use3dTerrain: false, //set true for enabling 3D maps.
     title: '',
     subtitle: '',
@@ -25,7 +23,7 @@ var config = {
             id: 'intro',
             alignment: 'left',
             hidden: false,
-            title: '<h3 class="custom-main-title">¿Dónde ocurren más accidentes en el Gran Concepción?</h3>',
+            title: '<h3 class="custom-main-title">¿Dónde ocurren más accidentes en el Gran Concepción????</h3>',
             subs: '<h3 class="custom-subs">Análisis de datos en partnership con Waze.</h3>',
             location: {
                 center: [-73.10207, -36.81371],
@@ -63,11 +61,13 @@ var config = {
             alignment: 'left',
             hidden: false,
             title: '<h3 class="custom-title">Estación Alborada, <br>San Pedro de la Paz.</h3>',
-            description: 'The second chapter flies to Washington, D.C., updates the camera pitch, and slowly rotates. <br>  <br> Washington, D.C., the capital of the United States, is a vibrant city known for its iconic landmarks, including the White House, the U.S. Capitol, and the Washington Monument. It serves as the political heart of the nation and a center for history, culture, and international diplomacy.',
+            description: '<p class="custom-description">En la zona, se produjeron 266 accidentes en total dentro del rango de fecha analizado. La mayoría se producen en la Ruta 160 que conecta Concepción y Coronel - Lota.\n' +
+                'En la zona que concentra una  densidad elevada de accidentes mayores se contabilizaron 52 accidentes, área  que también comparte área crítica con la estación diagonal Biobío. En el sector solo se presenta un colegio y un mall de importaciones. \n' +
+                'En cuanto al uso de suelo, el 86% de la manzanas del sector tienen un uso residencial y, en segundo lugar, como bodegas de almacenamiento, con un 8%.',
             image: '',
             location: {
                 center: [-73.13022, -36.84421],
-                zoom: 15.5,
+                zoom: 16,
                 pitch: 20,
                 bearing: -90,
                 // flyTo additional controls-
@@ -89,7 +89,7 @@ var config = {
             description: '<p class="custom-description">Analizamos datos de Waze para determinar los sectores con mayor prevalencia de accidentes de tránsito en el área metropolitana. Los resultados nos permiten entender las causas subyacentes a los accidentes.</p>',
             location: {
                 center: [-73.11807, -36.83740],
-                zoom: 16.35,
+                zoom: 16,
                 pitch: 60.01,
                 bearing: -60.00,
             },
