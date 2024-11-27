@@ -67,7 +67,7 @@ var config = {
             image: '',
             location: {
                 center: [-73.13022, -36.84421],
-                zoom: 16,
+                zoom: 16.72,
                 pitch: 20,
                 bearing: -90,
                 // flyTo additional controls-
@@ -89,7 +89,7 @@ var config = {
             description: '<p class="custom-description">Analizamos datos de Waze para determinar los sectores con mayor prevalencia de accidentes de tránsito en el área metropolitana. Los resultados nos permiten entender las causas subyacentes a los accidentes.</p>',
             location: {
                 center: [-73.11807, -36.83740],
-                zoom: 16,
+                zoom: 16.54,
                 pitch: 60.01,
                 bearing: -60.00,
             },
@@ -107,7 +107,7 @@ var config = {
             description:'<p class="custom-description">Acá las Coronel Lota son del terror</p>',
             location: {
                 center: [-73.07925, -36.80831],
-                zoom: 16,
+                zoom: 15.833,
                 pitch: 30,
                 bearing: -0.1,
             },
@@ -125,7 +125,7 @@ var config = {
             description:'<p class="custom-description">La planta de revisión técnica genera el caos para todos lados</p>',
             location: {
                 center: [-73.06528, -36.79791],
-                zoom: 16,
+                zoom: 15.81,
                 pitch: 20,
                 bearing: -0.1,
             },
@@ -143,7 +143,7 @@ var config = {
             description: '<p class="custom-description">La entrada al terminal siempre tomada por los Uber.</p>',
             location: {
                 center: [-73.02745, -36.81144],
-                zoom: 16,
+                zoom: 15.506,
                 pitch: 20,
                 bearing: -0.1,
             },
