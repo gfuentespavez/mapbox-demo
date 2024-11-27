@@ -15,7 +15,7 @@ var config = {
     title: '',
     subtitle: '',
     byline: '',
-    image: '<img src="/assets/images/logo.png" alt="" class="custom-logo">',
+    image: '<img src="./assets/images/logo.png" alt="" class="custom-logo">',
 
     auto: false,
     chapters: [
