@@ -23,8 +23,8 @@ var config = {
             id: 'intro',
             alignment: 'left',
             hidden: false,
-            title: '<h3 class="custom-main-title">¿Dónde ocurren más accidentes en el Gran Concepción????</h3>',
-            subs: '<h3 class="custom-subs">Análisis de datos en partnership con Waze.</h3>',
+            title: '<h3 class="custom-main-title">¿Dónde ocurren más accidentes en el Gran Concepción?</h3>',
+            subs: '<h3 class="custom-subs">Analizamos los puntos críticos de la ciudad usando datos en partnership con Waze.</h3>',
             location: {
                 center: [-73.10207, -36.81371],
                 zoom: 9.34,
