@@ -60,25 +60,30 @@ var config = {
             alignment: 'left',
             hidden: false,
             title: '<h3 class="custom-title">Estación Alborada, <br>San Pedro de la Paz.</h3>',
-            description: '<p class="custom-description">En la zona, se produjeron 266 accidentes en total dentro del rango de fecha analizado. La mayoría se producen en la Ruta 160 que conecta Concepción y Coronel - Lota.\n' +
-                'En la zona que concentra una densidad elevada de accidentes mayores se contabilizaron 52 accidentes. En el sector solo se presenta un colegio y un mall de importaciones. \n' +
-                '',
-            image: '',
+            description: `
+        <p class="custom-description">
+            En la zona, se produjeron 266 accidentes en total dentro del rango de fecha analizado. La mayoría se producen en la Ruta 160 que conecta Concepción y Coronel - Lota.
+            <br><br>
+            En la zona que concentra una densidad elevada de accidentes mayores se contabilizaron 52 accidentes. En el sector solo se presenta un colegio y un mall de importaciones.
+        </p>
+        <div class="image-row">
+            <img src="assets/images/indicadores/Estación alborada_1.png" alt="Estación Alborada Image 1" class="chapter-image">
+            <img src="assets/images/indicadores/Estación alborada-02.png" alt="Estación Alborada Image 2" class="chapter-image">
+            <img src="assets/images/indicadores/Estación alborada-03.png" alt="Estación Alborada Image 3" class="chapter-image">
+        </div>
+    `,
+            image: '',  // No main image as we've added the images directly in the description
             location: {
                 center: [-73.13022, -36.84421],
                 zoom: 16.72,
                 pitch: 20,
                 bearing: -90,
-                // flyTo additional controls-
-                // These options control the flight curve, making it move
-                // slowly and zoom out almost completely before starting
-                // to pan.
             },
-            mapAnimation: 'easeTo',
+            mapAnimation: 'flyTo',
             rotateAnimation: true,
             callback: '',
             onChapterEnter: [],
-            onChapterExit: []
+            onChapterExit: [],
         },
         {
             id: 'diagonal-biobio-spp',
