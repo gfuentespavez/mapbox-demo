@@ -56,6 +56,7 @@
 .custom-title {
     font-size: 2rem;
     font-weight: 700;
+    font-family: "Roboto Slab", serif;
     text-align: left;
     margin-bottom: 2rem;
     line-height: 1.2;
@@ -67,6 +68,25 @@
     text-align: left;
     margin-right: 1rem;
 }
+
+.custom-button {
+    margin-top: 3rem;
+    margin-left: 7rem;
+    padding: 1rem;
+    font-size: 16px;
+    background-color: #191919;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-button:hover {
+    background-color: #ffcc06;
+    color: black;
+}
+
+
 
 /* Smaller on mobile */
 @media (max-width: 768px) {
