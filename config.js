@@ -62,17 +62,22 @@ var config = {
             title: '<h3 class="custom-title">Estación Alborada, <br>San Pedro de la Paz.</h3>',
             description: `
         <p class="custom-description">
-            En la zona, se produjeron 266 accidentes en total dentro del rango de fecha analizado. La mayoría se producen en la Ruta 160 que conecta Concepción y Coronel - Lota.
+            En esta sección de la Ruta 160, a la altura de avenida Michaihue, se reportaron en la aplicación de tráfico social 266 accidentes en total dentro del rango de fecha analizado. La mayoría se producen en la arteria principal que conecta Concepción y Coronel - Lota.
             <br><br>
-            En la zona que concentra una densidad elevada de accidentes mayores se contabilizaron 52 accidentes. En el sector solo se presenta un colegio y un mall de importaciones.
+            En cuanto al número de accidentes mayores, se contabilizaron 52 entre marzo y agosto. En el sector solo se presenta un colegio y un mall de importaciones.
         </p>
-        <div class="image-row">
-            <img src="assets/images/indicadores/Estación alborada_1.png" alt="Estación Alborada Image 1" class="chapter-image">
-            <img src="assets/images/indicadores/Estación alborada-02.png" alt="Estación Alborada Image 2" class="chapter-image">
-            <img src="assets/images/indicadores/Estación alborada-03.png" alt="Estación Alborada Image 3" class="chapter-image">
+        <div class="usos">
+            <h4>
+                Diversidad usos de suelo
+            </h4>
         </div>
-    `,
-            image: '',  // No main image as we've added the images directly in the description
+        <div class="image-row">
+            <img src="assets/images/indicadores/alborada/alborada01.png" class="chapter-image">
+            <img src="assets/images/indicadores/alborada/alborada02.png" class="chapter-image">
+            <img src="assets/images/indicadores/alborada/alborada03.png" class="chapter-image">
+        </div>
+        `,
+            image: '',
             location: {
                 center: [-73.13022, -36.84421],
                 zoom: 16.72,
@@ -90,7 +95,23 @@ var config = {
             alignment: 'left',
             hidden: false,
             title: '<h3 class="custom-title">Diagonal Biobío - estación Biotren</h3>',
-            description: '<p class="custom-description"> Hacia Concepción por la ruta 160, este sector sumó 389 accidentes en total. En esta zona crítica para el tráfico se encuentra el Cesfam Candelaria, un SAPU y un SAR, además de la Tenencia de Carabineros y siete establecimientos educacionales.',
+            description: `
+            <p class="custom-description">
+            Hacia Concepción por la ruta 160, este sector sumó 389 accidentes en total.
+            <br><br>
+            En esta zona crítica para el tráfico se encuentra el Cesfam Candelaria, un SAPU y un SAR, además de la Tenencia de Carabineros y siete establecimientos educacionales.
+            </p>
+            <div class="usos">
+                <h4>
+                    Diversidad usos de suelo
+                </h4>
+            </div> 
+            <div class="image-row">
+                <img src="assets/images/indicadores/diagonal/diagonal01.png" class="chapter-image">
+                <img src="assets/images/indicadores/diagonal/diagonal02.png" class="chapter-image">
+                <img src="assets/images/indicadores/diagonal/diagonal03.png" class="chapter-image">
+            </div>
+            `,
             location: {
                 center: [-73.11807, -36.83740],
                 zoom: 16.54,
@@ -108,8 +129,23 @@ var config = {
             alignment: 'left',
             hidden: false,
             title:'<h3 class="custom-title">Nudo Nobis, Concepción</h3>',
-            description:'<p class="custom-description">En octubre de 2023, los trabajos de ampliación y mejoramiento del Nudo Nobis entraron en la incertidumbre. La quiebra de la empresa constructora perjuficó el desplazamiento vehicular por esta zona con usos de suelos mixtos. \n' +
-                'Entre el 15 de marzo y el 19 de agosto, se contabilizaron 496 accidentes, de los cuales 67 fueron de características mayores. En una zona de conexión entre Concepción, Talcahuano, Hualpén, San Pedro de la Paz y las comunas al sur del Biobío, resulta indispensable contar con una corresponsabilidad vial.',
+            description: `
+            <p class="custom-description">
+                En octubre de 2023, los trabajos de ampliación y mejoramiento en esta intersecci´ón entraron en la incertidumbre. La quiebra de la empresa constructora perjuficó el desplazamiento vehicular por esta zona con usos de suelos mixtos.
+            <br><br>
+                Entre el 15 de marzo y el 19 de agosto, se contabilizaron 496 accidentes, de los cuales 67 fueron de características mayores. En una zona de conexión entre Concepción, Talcahuano, Hualpén, San Pedro de la Paz y las comunas al sur del Biobío, resulta indispensable contar con una corresponsabilidad vial.
+            </p>
+            <div class="usos">
+                <h4>
+                    Diversidad usos de suelo
+                </h4>
+            </div>
+            <div class="image-row">
+                <img src="assets/images/indicadores/nobis/nobis01.png" class="chapter-image">
+                <img src="assets/images/indicadores/nobis/nobis02.png" class="chapter-image">
+                <img src="assets/images/indicadores/nobis/nobis03.png" class="chapter-image">
+            </div>
+            `,
             location: {
                 center: [-73.07828, -36.80668],
                 zoom: 17.25,
@@ -127,8 +163,23 @@ var config = {
             alignment: 'left',
             hidden: false,
             title:'<h3 class="custom-title">Enlace Trébol</h3>',
-            description:'<p class="custom-description">Las largas filas para ingresar a la planta de revisión técnica generaron filas kilométricas, según reportó el medio <a href="https://www.biobiochile.cl/noticias/nacional/region-del-bio-bio/2024/07/02/esperas-de-hasta-2-horas-y-filas-kilometricas-planta-de-revision-tecnica-de-paicavi-esta-colapsada.shtml" target="_blank">biobiochile.cl</a>. La aplicación Waze reportó 759 incidentes totales, entre los cuales se cuentan los 94 accidentes mayores que alteraron el tráfico. \n' +
-                'En la zona encontramos el Mall Plaza Trébol, dos centros de salud privado más una mutualidad, dos centros de estudios superiores, dos escuelas, la Prefectura de Carabineros, supermercados y la ya mencionada PRT Paicaví.',
+            description: `
+                <p class="custom-description">
+                    Las largas filas para ingresar a la planta de revisión técnica generaron filas kilométricas<a href="https://www.biobiochile.cl/noticias/nacional/region-del-bio-bio/2024/07/02/esperas-de-hasta-2-horas-y-filas-kilometricas-planta-de-revision-tecnica-de-paicavi-esta-colapsada.shtml"><sup>2</sup></a>. La aplicación Waze reportó 759 incidentes totales, entre los cuales se cuentan los 94 accidentes mayores que alteraron el tráfico.
+                <br><br>
+                    En la zona encontramos el Mall Plaza Trébol, dos centros de salud privado más una mutualidad, dos centros de estudios superiores, dos escuelas, la Prefectura de Carabineros, supermercados y la ya mencionada PRT Paicaví.
+                </p>
+                <div class="usos">
+                    <h4>
+                        Diversidad usos de suelo
+                    </h4>
+                </div>
+                <div class="image-row">
+                    <img src="assets/images/indicadores/trebol/trebol01.png" class="chapter-image">
+                    <img src="assets/images/indicadores/trebol/trebol02.png" class="chapter-image">
+                    <img src="assets/images/indicadores/trebol/trebol03.png" class="chapter-image">
+                </div>
+            `,
             location: {
                 center: [-73.06528, -36.79791],
                 zoom: 15.81,
@@ -146,8 +197,23 @@ var config = {
             alignment: 'left',
             hidden: false,
             title: '<h3 class="custom-title">Rotonda Bonilla, Concepción</h3>',
-            description: '<p class="custom-description">Punto de conexión entre Penco y Concepción, en la Rotonda Bonilla se registraron 296 accidentes, de los cuales 32 son de carácter mayor. \n ' +
-        'Los días previos a feriados largos, los eventos multitudinarios y el tránsito de camiones que vienen desde Cabrero y Penco ocasionan en esta área grandes atascamientos, cuyos impactos pueden alcanzar incluso hasta el sector del Mall Plaza Trébol.',
+            description: `
+            <p class="custom-description">
+                Punto de conexión entre Penco y Concepción, en la Rotonda Bonilla se registraron 296 accidentes, de los cuales 32 son de carácter mayor.
+                <br><br>
+                Los días previos a feriados largos, los eventos multitudinarios y el tránsito de camiones que vienen desde Cabrero y Penco ocasionan en esta área grandes atascamientos, cuyos impactos pueden alcanzar incluso hasta el sector del Mall Plaza Trébol.
+            </p>
+            <div class="usos">
+                <h4>
+                    Diversidad usos de suelo
+                </h4>
+            </div>
+            <div class="image-row">
+                <img src="assets/images/indicadores/bonilla/bonilla01.png" class="chapter-image">
+                <img src="assets/images/indicadores/bonilla/bonilla02.png" class="chapter-image">
+                <img src="assets/images/indicadores/bonilla/bonilla03.png" class="chapter-image">
+            </div>
+            `,
             location: {
                 center: [-73.02745, -36.81144],
                 zoom: 15.506,
@@ -181,9 +247,8 @@ var config = {
               dado que estos días presentan la mayor recurrencia de accidentes de tránsito.
             <br><br>
             <a href="https://citylabbiobio.cl/wp-content/uploads/2024/12/Microestudio_Accidentes-v02.pptx.pdf">
-                <button id="cierreButton" class="custom-button">Ver más detalles</button>
+                <button id="cierreButton" class="custom-button">Descarga el microestudio sobre accidentes </button>
             </a>
-            
         </p>
     `,
             location: {
@@ -200,3 +265,8 @@ var config = {
         },
     ]
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+    const closureContent = document.getElementById('closure-content');
+    closureContent.style.display = 'block'; // Ensure it appears at the right moment
+});

@@ -67,11 +67,12 @@
     line-height: 1.5rem;
     text-align: left;
     margin-right: 1rem;
+    margin-bottom: -1rem;
 }
 
 .custom-button {
+    font-family: "Roboto Slab", serif;
     margin-top: 3rem;
-    margin-left: 7rem;
     padding: 1rem;
     font-size: 16px;
     background-color: #191919;
@@ -88,8 +89,8 @@
 
 .image-row {
     display: flex;
-    gap: 2rem;
-    justify-content: center;
+    gap: 5rem;
+    justify-content: left;
     flex-wrap: wrap;
 }
 
@@ -98,9 +99,75 @@
     max-width: 100px;
     height: auto;
     display: block;
+    margin-left: -2rem;
+}
+
+.usos h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: "Roboto Slab", serif;
+    text-align: left;
+    color: #ffcc06;
+    margin-bottom: -2rem;
+    margin-left: -3rem;
+}
+
+sup {
+    font-size: 0.8rem;
+    vertical-align: super;
+    color: #ffcc06;
+    font-weight: bold;
+}
+
+#closure-content {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #191919;
+    color: white;
+    padding: 20px;
+}
+
+#closure-image {
+    max-width: 300px;
+    margin-top:40vh;
+    margin-bottom: 10px;
 }
 
 
+#closure-content h1 {
+    font-family: "Roboto Slab", serif;
+    font-weight: 400;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+#closure-content p {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    max-width: 600px;
+}
+
+/* Button Styling */
+.closure-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #FFCC06;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.closure-button:hover {
+    background: #191919;
+    color: #ffcc06;/* Slightly brighter on hover */
+}
 
 /* Smaller on mobile */
 @media (max-width: 768px) {
