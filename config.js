@@ -24,7 +24,11 @@ var config = {
             alignment: 'left',
             hidden: false,
             title: '<h3 class="custom-main-title">¿Dónde ocurren más accidentes en el Gran Concepción?</h3>',
-            subs: '<h3 class="custom-subs">Analizamos los puntos críticos de la ciudad usando datos en partnership con Waze.</h3>',
+            subs: `
+                <h3 class="custom-subs">
+                    Analizamos los puntos críticos de la ciudad usando datos en partnership con Waze
+                </h3>
+`,
             location: {
                 center: [-73.10207, -36.81371],
                 zoom: 9.34,
@@ -41,7 +45,7 @@ var config = {
             id: 'intro-bajada',
             alignment: 'left',
             hidden: false,
-            title:'',
+            title: '',
             description:'<p class="custom-description">El Área Metropolitana del Gran Concepción, segundo conglomerado urbano del país, experimentó un constante incremento en la flota vehicular durante los últimos años: en 2022, se vendieron 27.926 vehículos nuevos, y 21.027, en 2023 (Anac, 2022-23). También, en 2022, la región del Biobío ocupó el tercer lugar con la mayor cantidad de permisos de circulación para vehículos en Chile con 511.500 permisos. Esto corresponde a 0,3 permisos por persona, situándose por sobre los 0,27 de la Región Metropolitana (INE, 2023).\n' +
                 '<br><br>Este aumento de vehículos motorizados en la ciudad genera diferentes impactos de carácter negativo como el incremento en el flujo y la congestión vehicular, la contribución a la contaminación y, por último. potencia el riesgo de experimentar una colisión o accidentes de tránsito',
             location: {

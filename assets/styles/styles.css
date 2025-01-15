@@ -134,10 +134,9 @@ sup {
 
 #closure-image {
     max-width: 300px;
-    margin-top:40vh;
+    margin-top: 40vh;
     margin-bottom: 10px;
 }
-
 
 #closure-content h1 {
     font-family: "Roboto Slab", serif;
@@ -169,6 +168,26 @@ sup {
     background: #ffcc06;
     color: #191919 !important;
 }
+
+/* Footer Styling */
+.footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 20px;
+}
+
+.footer h1 {
+    font-family: "Roboto Slab", serif;
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.footer .closure-button {
+    margin-top: 20px;
+}
+
+
 
 /* Smaller on mobile */
 @media (max-width: 768px) {
